@@ -1,0 +1,63 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <!-- site__body -->
+    <div class="site__body">
+        <div class="block-space block-space--layout--spaceship-ledge-height"></div>
+        <div class="block">
+            <div class="container">
+                <div class="document">
+                   
+                    <div class="document__content card">
+                        <div class="typography">
+                           
+
+                            <ol>
+                                <li>
+                                    <strong>Submission Date</strong> — {{dis_obj.submission_date}}
+                                </li>
+                                <li>
+                                    <strong>First Name.</strong> — {{dis_obj.first_name}}
+                                </li>
+                                <li>
+                                    <strong>Last name</strong> — {{dis_obj.lat_name}}
+                                </li>
+                                <li>
+                                    <strong>Email</strong> — {{dis_obj.email}}
+                                </li>
+                                <li>
+                                    <strong>Phone No</strong> — {{dis_obj.phone}}
+                                </li>
+                                <li>
+                                    <strong>Country</strong> — {{dis_obj.country}}
+                                </li>
+                                <li>
+                                    <strong>Company</strong> — {{dis_obj.company}}
+                                </li>
+                                <li>
+                                    <strong>Staff</strong> — {{dis_obj.staff}}
+                                </li>
+                                <li>
+                                    <strong>Website</strong> — {{dis_obj.website}}
+                                </li>
+                                <li>
+                                    <strong>Comment</strong> — {{dis_obj.comment}}
+                                </li>
+                            </ol>
+
+                             <!-- <div class="document__signature">
+                                <img src='{% static "images/logo.png" %}' width="160" height="55" alt="">
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block-space block-space--layout--before-footer"></div>
+    </div>
+    <!-- site__body / end -->
+
+{% endblock %}

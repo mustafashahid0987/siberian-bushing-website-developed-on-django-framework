@@ -1,0 +1,223 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+        <!-- site__body -->
+        <div class="site__body">
+            <div class="block-space block-space--layout--after-header"></div>
+            <div class="block">
+                <div class="container container--max--xl">
+                    <div class="row">
+                        <!-- <div class="col-12 col-lg-3 d-flex">
+                            <div class="account-nav flex-grow-1">
+                                <h4 class="account-nav__title">Navigation</h4>
+                                <ul class="account-nav__list">
+                                    <li class="account-nav__item ">
+                                        <a href="account-dashboard.html">Dashboard</a>
+                                    </li>
+                                    <li class="account-nav__item ">
+                                        <a href="account-garage.html">Garage</a>
+                                    </li>
+                                    <li class="account-nav__item ">
+                                        <a href="account-profile.html">Edit Profile</a>
+                                    </li>
+                                    <li class="account-nav__item ">
+                                        <a href="account-orders.html">Order History</a>
+                                    </li>
+                                    <li class="account-nav__item ">
+                                        <a href="account-order-details.html">Order Details</a>
+                                    </li>
+                                    <li class="account-nav__item ">
+                                        <a href="account-addresses.html">Addresses</a>
+                                    </li>
+                                    <li class="account-nav__item  account-nav__item--active ">
+                                        <a href="account-edit-address.html">Edit Address</a>
+                                    </li>
+                                    <li class="account-nav__item ">
+                                        <a href="account-password.html">Password</a>
+                                    </li>
+                                    <li class="account-nav__divider" role="presentation"></li>
+                                    <li class="account-nav__item ">
+                                        <a href="account-login.html">Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div> -->
+                        <div class="col-12 col-lg-9 mt-4 mt-lg-0">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5>Update Product</h5>
+                                </div>
+                                <div class="card-divider"></div>
+                                <div class="card-body card-body--padding--2">
+                                    <form method="post">
+                                    {% csrf_token %}
+
+                                    
+                                    <div class="row no-gutters">
+                                        <div class="col-12 col-lg-10 col-xl-8">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="address-first-name">Model No</label>
+                                                    <input type="text" name="model_no" class="form-control" id="address-first-name" placeholder="write product model no" value="{{product_obj.model_no}}">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="address-first-name">Bushing No</label>
+                                                    <input type="text" name="bushing_no" class="form-control" id="address-first-name" placeholder="write product model no" value="{{product_obj.model_no}}">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="address-last-name">Title</label>
+                                                    <input type="text" name="title" class="form-control" id="address-last-name" placeholder="write your product title" value="{{product_obj.product_title}}">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="address-phone">Description</label>
+                                                <input type="text" name="description" class="form-control" id="address-phone" placeholder="write your product description here.." value="{{product_obj.product_description}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="address-phone">Weight</label>
+                                                <input type="text" name="weight" class="form-control" id="address-phone" placeholder="write your product weight here.." value="{{product_obj.weight}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="address-phone">package</label>
+                                                <input type="text" name="package" class="form-control" id="address-phone" placeholder="write your product package here.." value="{{product_obj.package}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="address-phone">Price Per Pack</label>
+                                                <input type="text" name="ppp" class="form-control" id="address-phone" placeholder="write your price per pack here.." value="{{product_obj.price_per_pack}}">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="address-email">Price Per Unit</label>
+                                                <input type="text" name="ppu" class="form-control" id="address-email" placeholder="write your price per unit here..." value="{{product_obj.price_per_unit}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="address-phone">Product Image</label>
+                                                <img class="block-finder__form-control" src="/media/{{product_obj.image_file}}" alt="Product Image">
+                                                <input class="form-control" type="file" name="pimage" accept="image/*">
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label for="address-phone">Search Image</label>
+                                                <img class="block-finder__form-control" src="/media/{{product_obj.search_image_file}}" alt="Product Image">
+                                                <input class="form-control" type="file" name="simage" accept="image/*" >
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="address-email">Make</label>
+                                                <input type="text" name="make" class="form-control" id="address-email" placeholder="write your make here..." value="{{product_obj.make}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="address-email">Market</label>
+                                                <input type="text" name="market" class="form-control" id="address-email" placeholder="write your market here..." value="{{product_obj.market}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="address-email">Model</label>
+                                                <input type="text" name="model" class="form-control" id="address-email" placeholder="write your model here..." value="{{product_obj.model}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="address-email">Body</label>
+                                                <input type="text" name="body" class="form-control" id="address-email" placeholder="write your body here..." value="{{product_obj.body}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="address-email">Year</label>
+                                                <input type="text" name="year" class="form-control" id="address-email" placeholder="write your year here..." value="{{product_obj.year}}">
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="address-country">Status</label>
+                                                <select name="status" id="address-country" class="form-control">
+                                                    <option value="">select type...</option>
+                                                    {% if product_obj.status == 'in-stock' %}
+                                                    <option value="in-stock" selected>In Stock</option>
+                                                    <option value="out-of-stock">Out Of Stock</option>
+                                                    {% elif product_obj.status == 'out-of-stock' %}
+                                                    <option value="in-stock">In Stock</option>
+                                                    <option value="out-of-stock" selected>Out Of Stock</option>
+                                                    {% endif %}
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="address-country">Suspension Type</label>
+                                                <select name="st" id="address-country" class="form-control">
+                                                    <option value="">select type...</option>
+                                                    {% if product_obj.suspension_type == 'Front-Suspension' %}
+                                                    <option value="Front-Suspension" selected>Front Suspension</option>
+                                                    <option value="Rear-Suspension">Rear Suspension</option>
+                                                    {% elif product_obj.suspension_type == 'Rear-Suspension' %}
+                                                    <option value="Front-Suspension">Front Suspension</option>
+                                                    <option value="Rear-Suspension" selected>Rear Suspension</option>
+                                                    {% endif %}
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="address-country">Product Category</label>
+                                                <select name="sc" id="address-country" class="form-control">
+                                                    <option value="">select category...</option>
+                                                    {% if product_obj.product_category == 'Featured' %}
+                                                    <option value="Featured" selected>Featured</option>
+                                                    <option value="Popular">Popular</option>
+                                                    <option value="Best-Seller">Best Seller</option>
+                                                    <option value="New-Arrival">New Arrival</option>
+                                                    <option value="Deal-Zone">Deal Zone</option>
+                                                    {% elif product_obj.product_category == 'Popular' %}
+                                                    <option value="Featured">Featured</option>
+                                                    <option value="Popular" selected>Popular</option>
+                                                    <option value="Best-Seller">Best Seller</option>
+                                                    <option value="New-Arrival">New Arrival</option>
+                                                    <option value="Deal-Zone">Deal Zone</option>
+                                                    {% elif product_obj.product_category == 'Best-Seller' %}
+                                                    <option value="Featured">Featured</option>
+                                                    <option value="Popular">Popular</option>
+                                                    <option value="Best-Seller" selected>Best Seller</option>
+                                                    <option value="New-Arrival">New Arrival</option>
+                                                    <option value="Deal-Zone">Deal Zone</option>
+                                                    {% elif product_obj.product_category == 'New-Arrival' %}
+                                                    <option value="Featured">Featured</option>
+                                                    <option value="Popular">Popular</option>
+                                                    <option value="Best-Seller">Best Seller</option>
+                                                    <option value="New-Arrival" selected>New Arrival</option>
+                                                    <option value="Deal-Zone">Deal Zone</option>
+                                                    {% elif product_obj.product_category == 'Deal-Zone' %}
+                                                    <option value="Featured">Featured</option>
+                                                    <option value="Popular">Popular</option>
+                                                    <option value="Best-Seller">Best Seller</option>
+                                                    <option value="New-Arrival">New Arrival</option>
+                                                    <option value="Deal-Zone" selected>Deal Zone</option>
+                                                    {% endif %}
+                                                </select>
+                                            </div>
+
+                                           
+
+
+                                            <div class="form-group mb-0 pt-3 mt-3">
+                                                <button class="btn btn-primary">Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="block-space block-space--layout--before-footer"></div>
+        </div>
+        <!-- site__body / end -->
+
+{% if messages %}
+{% for message in messages %}
+<script>
+    swal("Congratulations!", '{{message}}', "success");   
+</script>
+{% endfor %}
+{% endif %}
+
+{% endblock %}

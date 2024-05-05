@@ -1,0 +1,124 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <!-- site__body -->
+    <div class="site__body">
+        <div class="block-space block-space--layout--spaceship-ledge-height"></div>
+        <div class="block">
+            <div class="container">
+                <div class="document">
+                   
+                    <div class="document__content card">
+                        <div class="typography">
+                           
+
+                            <ol>
+                                <li>
+                                    <strong>Joined Date</strong> — {{user_obj.date_joined}}
+                                </li>
+                                <li>
+                                    <strong>Username.</strong> — {{user_obj.username}}
+                                </li>
+                                <li>
+                                    <strong>Email</strong> — {{user_obj.email}}
+                                </li>
+
+                            </ol>
+
+                            <div class="card">
+                                <div class="order-header">
+                                    <div class="order-header__actions">
+                                        <!-- <a href="account-orders.html" class="btn btn-xs btn-secondary">Back to list</a> -->
+                                    </div>
+                                    <h5 class="order-header__title">Wishlist</h5>
+                                    <div class="order-header__subtitle">
+                                        <!-- Was placed on <mark>Oct 19, 2020</mark> and is currently <mark>{{obj.status}}</mark>. -->
+                                    </div>
+                                </div>
+                                <div class="card-divider"></div>
+                                <div class="card-table">
+                                    <div class="table-responsive-sm">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>SN #</th>
+                                                    <th>Product</th>
+                                                    <th>Price Per Pack</th>
+                                                    <th>Price PEr Piece</th>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody class="card-table__body card-table__body--merge-rows">
+                                                {% for sign_no, lst in wish_data %}
+                                                {% for product in lst %}
+                                                <tr>
+                                                    <td>{{sign_no}}</td>
+                                                    <td><a href="{% url 'product_page_single' product.id %}">{{product.product_title}}</a></td>
+                                                    <td>{{product.price_per_pack}}</td>
+                                                    <td>${{product.price_per_unit}}</td>
+                                                </tr>
+                                                {% endfor %}
+                                                {% endfor %}
+                                         
+                                            </tbody>
+                                        
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card">
+                                <div class="order-header">
+                                    <div class="order-header__actions">
+                                        <!-- <a href="account-orders.html" class="btn btn-xs btn-secondary">Back to list</a> -->
+                                    </div>
+                                    <h5 class="order-header__title">Orders</h5>
+                                    <div class="order-header__subtitle">
+                                        <!-- Was placed on <mark>Oct 19, 2020</mark> and is currently <mark>{{obj.status}}</mark>. -->
+                                    </div>
+                                </div>
+                                <div class="card-divider"></div>
+                                <div class="card-table">
+                                    <div class="table-responsive-sm">
+                                        <table>
+                                            <thead>
+                                                <tr>
+                                                    <th>SN #</th>
+                                                    <th>Date</th>
+                                                    <th>Status</th>
+                                                    <th>Confirmation No</th>
+                                                </tr>
+
+                                            </thead>
+                                            <tbody class="card-table__body card-table__body--merge-rows">
+                                                {% for sign_no,product in order_data %}
+                                                <tr>
+                                                    <td><a href="{% url 'order_detail' product.pk %}">{{sign_no}}</a></td>
+                                                    <td>{{product.order_date}}</td>
+                                                    <td>{{product.status}}</td>
+                                                    <td>{{product.confirmation_no}}</td>
+                                                </tr>
+                                                
+                                                {% endfor %}
+                                         
+                                            </tbody>
+                                        
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block-space block-space--layout--before-footer"></div>
+    </div>
+    <!-- site__body / end -->
+
+{% endblock %}

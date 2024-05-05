@@ -1,0 +1,56 @@
+{% extends 'website/base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+    <!-- site__body -->
+    <div class="site__body">
+        <div class="block-space block-space--layout--spaceship-ledge-height"></div>
+        <div class="block">
+            <div class="container">
+                <div class="document">
+                   
+                    <div class="document__content card">
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="row no-gutters">
+                                <div class="col-12 col-lg-10 col-xl-8">
+                                   
+                                    <div class="form-group">
+                                        <label for="address-country">User</label>
+                                        <select name="user" id="address-country" class="form-control">
+                                            <option value="">select user...</option>
+                                            {% for user in user_obj %}
+                                            <option value="{{user.id}}">{{user.username}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="address-phone">Discount</label>
+                                        <input type="text" name="discount" class="form-control" id="address-phone" placeholder="write dyour iscount percentage here..">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address-phone">Order Limit</label>
+                                        <input type="text" name="order_limit" class="form-control" id="address-phone" placeholder="write your order limit here..">
+                                    </div>
+                
+
+                                    <div class="form-group mb-0 pt-3 mt-3">
+                                        <button class="btn btn-primary">Send Coupon</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block-space block-space--layout--before-footer"></div>
+    </div>
+    <!-- site__body / end -->
+
+{% endblock %}
